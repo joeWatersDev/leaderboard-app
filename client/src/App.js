@@ -1,6 +1,5 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { EasybaseProvider, useEasybase } from 'easybase-react';
 // Importing components
 import HelloWorld from './components/HelloWorld';
 import { getRuns } from './services/apiService';
@@ -19,7 +18,7 @@ function RunTable(props){
     const sortedData = [...runData].sort((a,b) =>{
       let aTotalTime = a.hours*3600 + a.minutes*60 + a.seconds
       let bTotalTime = b.hours*3600 + b.minutes*60 + b.seconds
-      if (currentSort == "timeAccend"){
+      if (currentSort === "timeAccend"){
         setCurrentSort("timeDecend")
         return aTotalTime < bTotalTime ? 1:-1
       }
@@ -35,7 +34,7 @@ function RunTable(props){
 
   function handleNameSort(){
     const sortedData = [...runData].sort((a,b) =>{
-      if (currentSort == "nameAccend"){
+      if (currentSort === "nameAccend"){
         setCurrentSort("nameDecend")
         return a.runner < b.runner ? 1:-1
       }
