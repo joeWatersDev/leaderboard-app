@@ -1,19 +1,19 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { EasybaseProvider, useEasybase } from 'easybase-react';
-
-
-
-const data =[  
-  {runner: "Waz", hours: 0, minutes: 5, seconds: 52 },
-  {runner: "Joe", hours: 0, minutes: 23, seconds: 55 },
-  {runner: "Zote", hours: 0, minutes: 2, seconds: 55 },
-]
-
+// Importing components
+import HelloWorld from './components/HelloWorld';
+import { getRuns } from './services/apiService';
 
 function RunTable(props){
-  const [runData, setRunData] = useState([])
+  const [runData, setRunData] = useState(null)
   const [currentSort, setCurrentSort] = useState("")
+
+  useEffect(() => {
+    getRuns()
+        .then(response => setRunData(response.data))
+        .catch(error => console.log(error));
+  }, []);
 
   function handleTimeSort(){
     const sortedData = [...runData].sort((a,b) =>{
@@ -48,21 +48,24 @@ function RunTable(props){
     setRunData(sortedData)
   }
 
-  useEffect(() => {
-    setRunData(props.runData)
-  }, [])
-
-  
-
-  const tableEntries = runData.map((object) =>{
-    let time = `${object.hours}h ${object.minutes}m ${object.seconds}s`
-    return <Entry runner = {object.runner} time = {time}/>
-  })
+  if (runData === null) {
+    return(
+        <>
+          <span>Loading...</span>
+        </>
+    );
+  }
 
   return(
     <>
       <div className="Run-Table">
-        {tableEntries}
+        {runData.map(object => (
+            <Entry
+                key={object.runner}
+                runner={object.runner}
+                time={`${object.hours}h ${object.minutes}m ${object.seconds}s`}
+            />
+        ))}
       </div>
 
       <div className="User-options">
@@ -90,7 +93,7 @@ function App() {
   return (    
     <div className="App">
       
-      <RunTable runData = {data}/>
+      <RunTable />
 
     </div>
   );
