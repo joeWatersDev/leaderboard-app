@@ -3,28 +3,6 @@
   padding:20px;
 }
 
-.Run{
-  display: flex;
-  border: #282c34 solid;
-}
-
-.Run-info {
-  flex: 1;
-  height: 48px;
-}
-
-.User-options {
-  padding: 20px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.Option-button {
-  width: 120px;
-  
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

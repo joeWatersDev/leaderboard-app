@@ -67,10 +67,10 @@ function RunTable(props){
           ))}
         </div>
   
-        <div className="User-options">
-          <button className="Option-button">Submit New Run</button>
-          <button onClick={handleNameSort} className="Option-button">Sort By Name</button>
-          <button onClick={handleTimeSort} className="Option-button">Sort By Time</button>
+        <div className="user-options">
+          <button className="user-options__button">Submit New Run</button>
+          <button onClick={handleNameSort} className="user-options__button">Sort By Name</button>
+          <button onClick={handleTimeSort} className="user-options__button">Sort By Time</button>
         </div>
       </>
     )

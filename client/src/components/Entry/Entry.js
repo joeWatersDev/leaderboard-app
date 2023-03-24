@@ -2,11 +2,11 @@ import "./Entry.scss";
 
 function Entry(props){
     return(
-      <div className="Run">
-            <div className={"Run-info Place"}>Place</div>
-            <div className={"Run-info Runner"}>{props.runner}</div>
-            <div className={"Run-info Time"}>{props.time}</div>
-            <div className={"Run-info Details"}>Click for details</div>
+      <div className="run">
+            <div className={"run__info Place"}>Place</div>
+            <div className={"run__info Runner"}>{props.runner}</div>
+            <div className={"run__info Time"}>{props.time}</div>
+            <div className={"run__info Details"}>Click for details</div>
           </div>
     )
   }
