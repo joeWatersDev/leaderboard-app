@@ -57,7 +57,7 @@ function RunTable(props){
   
     return(
       <>
-        <div className="Run-Table">
+        <div className="run-table">
           {runData.map(object => (
               <Entry
                   key={object.runner}

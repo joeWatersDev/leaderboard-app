@@ -1,13 +1,11 @@
 import "./FurryAd.scss";
 
-function FurryAd(props){
+function FurryAd(){
     return(
-      <div className="Run">
-            <div className={"Run-info Place"}>Place</div>
-            <div className={"Run-info Runner"}>{props.runner}</div>
-            <div className={"Run-info Time"}>{props.time}</div>
-            <div className={"Run-info Details"}>Click for details</div>
-          </div>
+      <div className="ad-container">
+        <div className="ad-container__image">Place</div>
+        <div className="ad-container__text">{props.runner}</div>
+      </div>
     )
   }
 
