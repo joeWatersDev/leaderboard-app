@@ -16,6 +16,11 @@ app.route('/')
     })
     .post((req, res) => {
         console.log(req.body)
+        mockData.push(req.body)
+        fs.writeFile('./data/mockData.json', JSON.stringify(mockData), 'utf8', (err) => {
+            if (err) throw err;
+            console.log('The file has been saved!');}
+            );
         // Submit a new time
     });
 

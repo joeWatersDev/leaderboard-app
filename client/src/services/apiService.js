@@ -7,5 +7,9 @@ export const getRuns = () => {
 };
 
 export const submitRun = (data) => {
-    return axios.post(baseUrl, data);
+    const runner = data.runner
+    const hours = parseInt(data.hours)
+    const minutes = parseInt(data.minutes)
+    const seconds = parseInt(data.seconds)
+    return axios.post(baseUrl, {runner, hours, minutes, seconds});
 };

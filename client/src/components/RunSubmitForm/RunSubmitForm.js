@@ -13,8 +13,7 @@ function RunSubmitForm(){
   }
 
   function handleSubmit(event){
-    event.preventDefault();
-    //console.log(formInputs);
+    //event.preventDefault();
     alert("Run submitted");
     submitRun(formInputs);
   }
@@ -24,7 +23,7 @@ function RunSubmitForm(){
         <form className="entry-form" onSubmit={handleSubmit}>
           <ul>
             <li>
-              <label htmlFor="name">Name: </label><input onChange={handleChange} name="name" id="name" type="text" value = {formInputs.name || ""} placeholder="username" required/>
+              <label htmlFor="name">Runner: </label><input onChange={handleChange} name="runner" id="runner" type="text" value = {formInputs.runner || ""} placeholder="username" required/>
             </li>
             <li>
               <label htmlFor="hours">Hours: </label><input onChange={handleChange} name="hours" id="name" type="number" min = "0" value = {formInputs.hours || ""} placeholder="hh" required/>
