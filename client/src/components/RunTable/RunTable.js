@@ -1,18 +1,24 @@
 import './RunTable.scss';
 import Entry from '../Entry';
+import RunSubmitForm from '../RunSubmitForm';
 import { useState, useEffect } from 'react';
-import { getRuns } from '../../services/apiService';
+import { getRuns, submitRun } from '../../services/apiService';
 
 
 function RunTable(props){
-    const [runData, setRunData] = useState(null)
-    const [currentSort, setCurrentSort] = useState("")
+    const [runData, setRunData] = useState(null);
+    const [currentSort, setCurrentSort] = useState("");
+    const [showForm, setShowForm] = useState(false);
   
     useEffect(() => {
       getRuns()
         .then(response => setRunData(response.data))
         .catch(error => console.log(error));
     }, []);
+
+    function handleShowForm(){
+      setShowForm(!showForm)
+    }
   
     function handleTimeSort(){
       const sortedData = [...runData].sort((a,b) =>{
@@ -68,10 +74,13 @@ function RunTable(props){
         </div>
   
         <div className="user-options">
-          <button className="user-options__button">Submit New Run</button>
+          <button onClick={handleShowForm} className="user-options__button">Submit New Run</button>
           <button onClick={handleNameSort} className="user-options__button">Sort By Name</button>
           <button onClick={handleTimeSort} className="user-options__button">Sort By Time</button>
         </div>
+
+        {showForm &&(<RunSubmitForm />)}
+
       </>
     )
   }
