@@ -1,19 +1,13 @@
-// .hello-world {
-//     color: blue;
+.ad-container{
+  display: flex;
+  flex-direction: column;
 
-//     .__child{
+  &__image-container{
+    flex: 1;
+  }
 
-//     }
+  &__text{
+    flex: 1;
+  }
 
-//     .__child--modified{
-        
-//     }
-  
-  
-//   }
-  
-//   @media screen and (min-width: 1024px) {
-//     .hello-world {
-  
-//     }
-//   }
+}

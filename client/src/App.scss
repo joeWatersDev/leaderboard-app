@@ -1,7 +1,25 @@
+@media screen and (max-width: 1024px) {
+  .App .furry-ad-container{
+    display:none;
+  }
+}    
+
 .App {
   text-align: center;
   padding:20px;
+  display:flex;
+  gap: 15px;
+
+  .run-table-container{
+    flex: 3;
+  }
+
+  .furry-ad-container{
+    flex: 1;
+  }
+
 }
+
 
 .App-header {
   background-color: #282c34;
