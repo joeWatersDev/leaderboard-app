@@ -79,7 +79,7 @@ function RunTable(props){
           <button onClick={handleTimeSort} className="user-options__button">Sort By Time</button>
         </div>
 
-        {showForm &&(<RunSubmitForm />)}
+        {showForm && (<RunSubmitForm />)}
 
       </>
     )
