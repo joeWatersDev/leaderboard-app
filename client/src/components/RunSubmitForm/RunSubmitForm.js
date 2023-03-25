@@ -1,5 +1,6 @@
 import "./RunSubmitForm.scss";
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
+import { submitRun } from '../../services/apiService';
 
 
 function RunSubmitForm(){
@@ -12,9 +13,10 @@ function RunSubmitForm(){
   }
 
   function handleSubmit(event){
-    //event.preventDefault();
-    console.log(formInputs);
-    alert(formInputs);
+    event.preventDefault();
+    //console.log(formInputs);
+    alert("Run submitted");
+    submitRun(formInputs);
   }
 
     return(
@@ -22,16 +24,16 @@ function RunSubmitForm(){
         <form className="entry-form" onSubmit={handleSubmit}>
           <ul>
             <li>
-              <label>Name: <input onChange={handleChange} name="name" type="text" value = {formInputs.name || ""} placeholder="Name" /></label>
+              <label htmlFor="name">Name: </label><input onChange={handleChange} name="name" id="name" type="text" value = {formInputs.name || ""} placeholder="username" required/>
             </li>
             <li>
-              <label>Hours: <input onChange={handleChange} name="hours" type="number" value = {formInputs.hours || ""} placeholder="0" /></label>
+              <label htmlFor="hours">Hours: </label><input onChange={handleChange} name="hours" id="name" type="number" min = "0" value = {formInputs.hours || ""} placeholder="hh" required/>
             </li>
             <li>
-              <label>Minutes: <input onChange={handleChange} name="minutes" type="number" value = {formInputs.minutes || ""} placeholder="0"/></label>
+              <label htmlFor="minutes">Minutes: </label><input onChange={handleChange} name="minutes" id="name" type="number" min = "0" max = "59" value = {formInputs.minutes || ""} placeholder="mm" required/>
             </li>
             <li>
-              <label>Seconds: <input onChange={handleChange} name="seconds" type="number" value = {formInputs.seconds || ""} placeholder="0"/></label>              
+              <label htmlFor="seconds">Seconds: </label><input onChange={handleChange} name="seconds" id="name" type="number" min = "0" max = "59" value = {formInputs.seconds || ""} placeholder="ss" required/>          
             </li>
             <li><input type="submit"/></li>              
           </ul>

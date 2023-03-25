@@ -15,8 +15,8 @@ app.route('/')
         res.json(mockData);
     })
     .post((req, res) => {
+        console.log(req.body)
         // Submit a new time
-
     });
 
 app.listen(8080, () => {

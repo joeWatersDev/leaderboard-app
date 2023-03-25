@@ -2,7 +2,7 @@ import './RunTable.scss';
 import Entry from '../Entry';
 import RunSubmitForm from '../RunSubmitForm';
 import { useState, useEffect } from 'react';
-import { getRuns, submitRun } from '../../services/apiService';
+import { getRuns } from '../../services/apiService';
 
 
 function RunTable(props){

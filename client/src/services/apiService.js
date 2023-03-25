@@ -6,7 +6,6 @@ export const getRuns = () => {
     return axios.get(baseUrl);
 };
 
-export const submitRun = () => {
-    // Not implemented
-    return null;
+export const submitRun = (data) => {
+    return axios.post(baseUrl, data);
 };
