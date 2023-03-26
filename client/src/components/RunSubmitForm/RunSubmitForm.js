@@ -13,9 +13,16 @@ function RunSubmitForm(){
   }
 
   function handleSubmit(event){
-    //event.preventDefault();
-    alert("Run submitted");
-    submitRun(formInputs);
+
+    event.preventDefault();
+
+    const submitData = setTimeout(() =>{
+      
+      alert("Run submitted");
+      submitRun(formInputs);
+    }, 500)
+
+    return () => clearTimeout(submitData)    
   }
 
     return(
